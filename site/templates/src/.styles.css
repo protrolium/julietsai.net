@@ -12518,9 +12518,6 @@ button.hamburger-nav,
 button.theme-toggle:hover {
   cursor: pointer;
 }
-.uk-offcanvas-container {
-  background-color: var(--bg-color);
-}
 .uk-offcanvas-close {
   cursor: pointer;
   z-index: 2000;
@@ -12532,19 +12529,13 @@ button.theme-toggle:hover {
 svg {
   pointer-events: none;
 }
-#menu {
-  z-index: 1000;
-}
-.uk-offcanvas-container {
-  z-index: 1005;
-}
 button.hamburger-nav {
   position: relative;
   z-index: 1;
 }
 :root[data-theme="theme-light"] {
   --primary-color: #0072a3;
-  --font-family: "Monaco", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family: ui-monospace, "SF Mono", Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Liberation Mono", "Courier New", monospace;
   --text-color: #333333;
   --bg-color: #fafafa;
   --component-bg-color: #ffffff;
@@ -12561,7 +12552,7 @@ button.hamburger-nav {
 }
 :root[data-theme="theme-dark"] {
   --primary-color: #49afd9;
-  --font-family: "Monaco", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family: ui-monospace, "SF Mono", Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Liberation Mono", "Courier New", monospace;
   --text-color: #e3f5fc;
   --bg-color: #090d0f;
   --component-bg-color: #22343c;
@@ -12589,6 +12580,10 @@ body {
   position: relative;
   z-index: 1;
 }
+.site-content > header {
+  position: relative;
+  z-index: 10;
+}
 em {
   color: inherit;
 }
@@ -12615,7 +12610,7 @@ h6,
 .uk-heading-large,
 .uk-heading-xlarge,
 .uk-heading-2xlarge {
-  font-family: "Monaco", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: var(--font-family);
   color: var(--text-color);
 }
 blockquote {
@@ -12715,13 +12710,6 @@ a:has(> img, svg)::after,
 a.noExternalSVG::after {
   display: none !important;
 }
-#se-results {
-  background-color: var(--component-bg-color);
-  position: absolute;
-  padding: 1em 3em 0 3em;
-  border-radius: 3rem;
-  z-index: 1000;
-}
 #featured-image-bg.lazyLoad {
   background-image: none !important;
   background-color: var(--bg-color);
@@ -12745,6 +12733,21 @@ a.noExternalSVG::after {
 @media (prefers-reduced-motion: reduce) {
   .cursor-gradient-blob {
     opacity: 0.12;
+  }
+}
+#menu.uk-offcanvas .uk-offcanvas-bar {
+  background-color: var(--bg-color);
+}
+.uk-offcanvas-overlay::before {
+  background: var(--bg-color);
+  opacity: 1;
+}
+@media (max-width: 959px) {
+  .uk-grid:not(.uk-grid-footer) {
+    margin-left: -15px;
+  }
+  .uk-grid:not(.uk-grid-footer) > * {
+    padding-left: 15px;
   }
 }
 @charset "UTF-8";

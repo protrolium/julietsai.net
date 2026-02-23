@@ -9,7 +9,7 @@
 
 :root[data-theme="theme-light"] {
     --primary-color: #0072a3;
-    --font-family: "Monaco", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family: ui-monospace, "SF Mono", Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Liberation Mono", "Courier New", monospace;
     --text-color: #333333;
     --bg-color: #fafafa;
     --component-bg-color: #ffffff;
@@ -25,7 +25,7 @@
     --form-input-bg: #fbfbfb;
 }:root[data-theme="theme-dark"] {
     --primary-color: #49afd9;
-    --font-family: "Monaco", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family: ui-monospace, "SF Mono", Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Liberation Mono", "Courier New", monospace;
     --text-color: #e3f5fc;
     --bg-color: #090d0f;
     --component-bg-color: #22343c;
@@ -57,6 +57,14 @@ body {
     z-index: 1;
 }
 
+// Header (and offcanvas inside it) must stack above main content so the menu
+// doesn't show bleed-through on load. Without this, stacking is wrong until
+// something forces a reflow (e.g. toggling position in inspector).
+.site-content > header {
+    position: relative;
+    z-index: 10;
+}
+
 em {
     color: inherit;
 }
@@ -86,7 +94,7 @@ h6,
 .uk-heading-large,
 .uk-heading-xlarge,
 .uk-heading-2xlarge {
-    font-family: "Monaco", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: var(--font-family);
     color: var(--text-color);
 }
 
@@ -199,19 +207,6 @@ a.noExternalSVG::after {
     display: none !important;
 }
 
-// search engine
-// :focus-visible {
-//     border-radius: 3rem;
-// }
-
-#se-results {
-    background-color: var(--component-bg-color);
-    position: absolute;
-    padding: 1em 3em 0 3em;
-    border-radius: 3rem;
-    z-index: 1000;
-}
-
 #featured-image-bg.lazyLoad {
     background-image: none !important;
     background-color: var(--bg-color);
@@ -244,3 +239,35 @@ a.noExternalSVG::after {
         opacity: 0.12;
     }
 }
+
+// Off-canvas mobile menu: solid background and above page content
+#menu.uk-offcanvas .uk-offcanvas-bar {
+    background-color: var(--bg-color);
+}
+.uk-offcanvas-overlay::before {
+    background: var(--bg-color);
+    opacity: 1;
+}
+
+// Reduce uk-grid gutter on mobile (default is 30px) (but not for footer elements)
+@media (max-width: 959px) {
+    .uk-grid:not(.uk-grid-footer) {
+        margin-left: -15px;
+    }
+    .uk-grid:not(.uk-grid-footer) > * {
+        padding-left: 15px;
+    }
+}
+
+// search engine
+// :focus-visible {
+//     border-radius: 3rem;
+// }
+
+// #se-results {
+//     background-color: var(--component-bg-color);
+//     position: absolute;
+//     padding: 1em 3em 0 3em;
+//     border-radius: 3rem;
+//     z-index: 1000;
+// }

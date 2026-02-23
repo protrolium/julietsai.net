@@ -30,10 +30,9 @@ button.theme-toggle:hover {
     cursor: pointer;
 }
 
-.uk-offcanvas-container {
-    background-color: var(--bg-color);
-}
-
+// Don't set z-index on uk-offcanvas-container: UIKit adds that class to the
+// page wrapper that shifts. A high z-index here would stack the whole page
+// (including blog content) above the offcanvas overlay/bar and cause bleed-through.
 .uk-offcanvas-close {
     cursor: pointer;
     z-index: 2000;
@@ -47,14 +46,6 @@ button.theme-toggle:hover {
 // fix mobile x menu nav button not always working
 svg {
     pointer-events: none;
-  }
-
-#menu {
-    z-index: 1000;
-}
-
-.uk-offcanvas-container {
-    z-index: 1005;
 }
 
 button.hamburger-nav {

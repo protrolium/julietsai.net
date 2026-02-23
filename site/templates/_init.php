@@ -13,7 +13,7 @@ if ($config->rockdevtools) {
         ->add('/site/templates/uikit/src/less/uikit.theme.less')
         ->add('/site/templates/sections/**.less', 3)
         ->add('/site/templates/styles/custom.less')
-        ->add('/site/templates/styles/formbuilder.less')
+        ->add('/site/templates/styles/formbuilder.css')
         ->save('/site/templates/src/.styles.css');
   
     // merge and minify css files
