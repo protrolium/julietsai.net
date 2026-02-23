@@ -1,0 +1,24 @@
+<section>
+    <div class="uk-padding-large" uk-scrollspy="cls:uk-animation-fade; target: > h2; delay: 350; repeat: false;">
+        <h2>{$page->title}</h2>
+    </div>
+    <div class="uk-padding-large uk-padding-remove-top" uk-scrollspy="cls:uk-animation-fade; target: > div; delay: 350; repeat: false;"
+        uk-height-viewport="expand: true;">
+        {foreach $page->awards_press_table as $item}
+            <div>
+                <table class="uk-table uk-table-divider uk-table-responsive uk-margin-remove-top helvetica-neue">
+                    <tbody>
+                        <tr class="uk-table-expand">
+                            <td class="uk-width-small uk-padding-small uk-padding-remove-left uk-padding-remove-top" 
+                                uk-tooltip="{$item->award_press_date|date: 'Y F j'}">{$item->award_press_date|date: 'Y'}</td>
+                            <td class="uk-width-xlarge uk-padding-remove-top uk-padding-remove-left">
+                                {$item->description|noescape}
+                            </td>
+                            <td class="uk-padding uk-padding-remove-left uk-padding-remove-top uk-margin-bottom">{$item->organization|noescape}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        {/foreach}
+    </div>  
+</section>

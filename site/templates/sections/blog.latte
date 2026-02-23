@@ -1,0 +1,39 @@
+<section class="uk-width-1-1" uk-height-viewport="expand: true;">
+    <div class="uk-width-1-1 uk-width-2-3@m uk-width-3-5@l uk-margin-auto uk-display-block uk-margin-large-bottom">
+        
+        <div class="uk-width-1-1 uk-margin-auto uk-display-block" uk-scrollspy="cls: uk-animation-fade; target: > div; delay: 350; repeat: false;">
+            
+            {* title *}
+            <div class="uk-padding uk-padding-remove-bottom">
+                <h1>{$page->title|noescape}</h1>
+            </div>
+
+            {* date + tags *}
+            <div 
+                class="uk-padding uk-padding-remove-top uk-text-muted"
+                uk-scrollspy="cls: uk-animation-fade; target: > div; delay: 350; repeat: false;">
+                
+                    <span class="text-light hover-icon" uk-icon="icon: clock; ratio: 0.7"></span> 
+                    <span style="position: relative; top: 0.1em;">{$page->post_date}</span>
+
+                    <span class="uk-text-secondary">
+                        {foreach $page->categories as $tag}
+                            <span uk-icon="icon: tag; ratio: 0.7"></span>
+                            <a href="{$tag->url}" alt=""><span>{$tag->title}</span></a>    
+                        {/foreach}
+                    </span>
+            </div>
+
+            {if $page->featured_image->first}
+                <div class="uk-padding uk-padding-remove-bottom">
+                    <img src="{$page->featured_image->first->url}" alt="{$page->featured_image->first->description}" uk-img>
+                </div>    
+            {/if}
+
+
+            <div class="uk-padding uk-padding-remove-top uk-padding-remove-bottom blog-content">    
+                {* render the repeater matrix *}
+                {$rockfrontend->render("/sections/includes/repeater-matrix-default.latte")}
+            </div>
+    </div>
+</section>

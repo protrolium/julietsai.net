@@ -1,0 +1,236 @@
+@charset "UTF-8";
+/**
+ * FormBuilder Basic Framework
+ * Aligned with site/templates/styles/custom.less (theme vars, typography, colors).
+ */
+
+.FormBuilder,
+.FormBuilder input,
+.FormBuilder textarea,
+.FormBuilder select,
+.FormBuilder button,
+.FormBuilder .ui-widget {
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.FormBuilder a {
+  color: var(--link-color);
+}
+.FormBuilder a:hover {
+  color: var(--text-color);
+}
+
+.FormBuilder .alert {
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+
+.FormBuilder .alert-error {
+  background: #c53030;
+  color: #fff;
+}
+
+.FormBuilder .alert-success {
+  background: #276749;
+  color: #fff;
+}
+
+.FormBuilder.InputfieldForm {
+  padding: 1px;
+  margin: 1em 0;
+}
+.FormBuilder.InputfieldForm input:not([type=radio]):not([type=checkbox]):not([type=file]):not([type=range]),
+.FormBuilder.InputfieldForm select:not([multiple]) {
+  margin: 0;
+  box-sizing: border-box;
+  height: 40px;
+  max-width: 100%;
+  width: 100%;
+  padding: 0 10px;
+  border: 1px solid var(--form-border-color);
+  background: var(--form-input-bg);
+  color: var(--text-color);
+  vertical-align: middle;
+  display: inline-block;
+}
+.FormBuilder.InputfieldForm input:not([type=radio]):not([type=checkbox]):not([type=file]):not([type=range]):focus,
+.FormBuilder.InputfieldForm select:not([multiple]):focus {
+  background: var(--component-bg-color);
+  border-color: var(--primary-color);
+  outline: none;
+}
+.FormBuilder.InputfieldForm select[multiple],
+.FormBuilder.InputfieldForm textarea {
+  padding: 5px 10px;
+  border: 1px solid var(--form-border-color);
+  background: var(--form-input-bg);
+  color: var(--text-color);
+}
+.FormBuilder.InputfieldForm select[multiple]:focus,
+.FormBuilder.InputfieldForm textarea:focus {
+  background: var(--component-bg-color);
+  border-color: var(--primary-color);
+  outline: none;
+}
+.FormBuilder.InputfieldForm select:not([multiple]):not([size]) {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 20px;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2224%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23666%22%20points%3D%2212%201%209%206%2015%206%22%20%2F%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23666%22%20points%3D%2212%2013%209%208%2015%208%22%20%2F%3E%0A%3C%2Fsvg%3E%0A");
+  background-repeat: no-repeat;
+  background-position: 100% 50%;
+}
+.FormBuilder.InputfieldForm select:not([multiple]):not([size])::-ms-expand {
+  display: none;
+}
+.FormBuilder.InputfieldForm select:not([multiple]):not([size]) option {
+  color: var(--text-color);
+}
+.FormBuilder.InputfieldForm input[type=file] {
+  line-height: 1;
+}
+.FormBuilder.InputfieldForm button {
+  padding: 10px 30px;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+.FormBuilder.InputfieldForm button:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+.FormBuilder.InputfieldForm .input-error {
+  color: #c53030;
+  font-size: smaller;
+}
+.FormBuilder.InputfieldForm .Inputfield {
+  margin-bottom: 2em;
+}
+.FormBuilder.InputfieldForm .Inputfield .InputfieldHeader {
+  display: block;
+  font-weight: 600;
+  padding-bottom: 0.25em;
+  color: var(--text-color);
+}
+.FormBuilder.InputfieldForm .notes,
+.FormBuilder.InputfieldForm .description {
+  margin-bottom: 0.5em;
+  margin-top: 0;
+  color: var(--uk-text-secondary);
+  opacity: 0.8;
+}
+.FormBuilder.InputfieldForm .notes {
+  font-size: smaller;
+}
+.FormBuilder.InputfieldForm fieldset.InputfieldFieldset {
+  padding: 25px;
+  padding-top: 0;
+  padding-bottom: 0;
+  border: 1px solid var(--form-border-color);
+}
+.FormBuilder.InputfieldForm fieldset.InputfieldFieldset legend {
+  font-weight: 600;
+  font-size: larger;
+  color: var(--text-color);
+}
+.FormBuilder.InputfieldForm fieldset.InputfieldFieldset > legend + .InputfieldContent {
+  margin-top: 1em;
+}
+.FormBuilder.InputfieldForm fieldset.InputfieldFieldset > .InputfieldContent > .description {
+  margin: 1em 0;
+}
+.FormBuilder.InputfieldForm .InputfieldFormBuilderFile {
+  padding: 25px;
+  padding-bottom: 12.5px;
+  border: 1px solid var(--form-border-color);
+  background: var(--form-input-bg);
+}
+.FormBuilder.InputfieldForm .InputfieldFormBuilderForm {
+  margin-bottom: 0;
+}
+.FormBuilder.InputfieldForm .InputfieldFormBuilderForm > .InputfieldHeader:not(.InputfieldHeaderHidden) {
+  margin-bottom: 10px;
+}
+.FormBuilder.InputfieldForm .InputfieldFormBuilderForm > .InputfieldHeader:not(.InputfieldHeaderHidden) + .InputfieldContent label.InputfieldHeader {
+  font-weight: normal;
+}
+.FormBuilder.InputfieldForm fieldset.InputfieldFormBuilderForm {
+  padding-top: 20px;
+  margin: 20px 0;
+  border-color: var(--form-border-color);
+  border-width: 1px;
+}
+.FormBuilder.InputfieldForm fieldset.InputfieldFormBuilderForm legend {
+  color: var(--uk-text-secondary);
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0 5px;
+}
+.FormBuilder.InputfieldForm .InputfieldFormBuilderForm + .InputfieldFormBuilderForm {
+  padding-top: 20px;
+}
+.FormBuilder.InputfieldForm .InputfieldFormBuilderPageBreak {
+  margin-bottom: 20px;
+}
+.FormBuilder.InputfieldForm .InputfieldCheckbox > .InputfieldContent,
+.FormBuilder.InputfieldForm .InputfieldCheckboxes > .InputfieldContent,
+.FormBuilder.InputfieldForm .InputfieldRadios > .InputfieldContent {
+  padding-top: 5px;
+}
+.FormBuilder.InputfieldForm .InputfieldCheckbox .pw-no-select,
+.FormBuilder.InputfieldForm .InputfieldCheckboxes .pw-no-select,
+.FormBuilder.InputfieldForm .InputfieldRadios .pw-no-select {
+  position: relative;
+  top: 2px;
+}
+.FormBuilder.InputfieldForm .InputfieldToggle .InputfieldToggleGroup label {
+  height: 40px;
+  line-height: 40px;
+  padding-top: 0;
+  padding-bottom: 0;
+  vertical-align: middle;
+}
+.FormBuilder.InputfieldForm .InputfieldStateRequired > .InputfieldHeader:first-child:after {
+  color: #c53030;
+  content: "*";
+}
+.FormBuilder.InputfieldForm #wrap_Inputfield-,
+.FormBuilder.InputfieldForm .wrap_Inputfield- {
+  display: none;
+}
+.FormBuilder.InputfieldForm .InputfieldSubmit button {
+  font-weight: bold;
+}
+.FormBuilder.InputfieldForm .InputfieldSubmit button:hover {
+  opacity: 0.9;
+}
+.FormBuilder.InputfieldForm .InputfieldColumnWidth > .InputfieldHeaderHidden::before {
+  display: block;
+  content: " ";
+}
+
+.Inputfields > .Inputfield > .InputfieldContent:before,
+.Inputfields > .Inputfield > .InputfieldContent:after,
+.InputfieldForm:after,
+.pw-clearfix:before,
+.pw-clearfix:after {
+  content: "";
+  display: table;
+  border-collapse: collapse;
+}
+
+.Inputfields > .Inputfield > .InputfieldContent:after,
+.InputfieldForm:after,
+.pw-clearfix:after {
+  clear: both;
+}
+
+.pw-clearfix {
+  min-height: 0;
+}

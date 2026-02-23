@@ -1,0 +1,33 @@
+<section>
+    <div class="uk-padding-large" uk-scrollspy="cls:uk-animation-fade; target: > h2; delay: 350; repeat: false;">
+        <h2>{$page->title}</h2>
+    </div>
+    <div class="uk-padding-large uk-padding-remove-top" uk-height-viewport="expand: true;">
+        {foreach $page->patent_table as $item}
+            <div uk-scrollspy="cls:uk-animation-fade; target: table, th, td; delay: 350; repeat: false;">
+                <table class="uk-table uk-table-divider uk-table-responsive uk-margin-remove-top">
+                    <thead>
+                        <tr>
+                            <th class="uk-table-expand uk-padding-small uk-padding-remove-left uk-padding-remove-top">Date</th>
+                            <th class="uk-table-expand uk-padding-small uk-padding-remove-left uk-padding-remove-top">Patent Number</th>
+                            <th class="uk-width-2-3@m uk-padding-small uk-padding-remove-left uk-padding-remove-top">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="uk-padding-small uk-padding-remove-left">
+                                {$item->date|date: 'Y F j'}
+                            </td>
+                            <td class="uk-padding-remove-left">
+                                {$item->patent_number|noescape}
+                            </td>
+                            <td class="uk-padding uk-padding-remove-left uk-margin-bottom uk-text-small">
+                                {$item->patent_description|noescape}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        {/foreach}
+    </div>  
+</section>

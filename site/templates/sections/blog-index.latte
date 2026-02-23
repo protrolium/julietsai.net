@@ -1,0 +1,56 @@
+<section uk-height-viewport="expand: true;">
+
+    <div 
+        class="uk-width-1-1 uk-width-2-3@m uk-width-1-2@l uk-margin-auto uk-flex uk-flex-column" 
+        uk-scrollspy="cls: uk-animation-fade; target: > div; delay: 300; repeat: false;">
+        
+        {foreach $pages->get('blog')->children() as $item}
+            <div class="uk-padding uk-padding-remove-bottom">
+                {* title *}
+                <a class="noUnderline" href="{$item->url}" alt="">
+                    <div class="uk-text-large">
+                        <span class="uk-text-secondary" style="word-wrap: break-word;">
+                            {$item->title|noescape}
+                        </span>
+                    </div>
+                </a>
+
+                {* date *}
+                <div class="uk-padding-small uk-padding-remove-top uk-padding-remove-bottom uk-padding-remove-left uk-text-muted">
+                    <span class="text-light hover-icon" uk-icon="icon: clock; ratio: 0.7"></span> 
+                    <span style="font-size: 0.7em; line-height: 2.5em;">{$item->post_date}</span>
+                </div>
+
+                <div class="uk-padding-small uk-padding-remove-top uk-padding-remove-bottom uk-padding-remove-left">
+                    {foreach $item->categories as $tag}
+                        <span uk-icon="icon: tag; ratio: 0.7"></span>
+                        <a href="{$tag->url}" alt=""><span style="font-size: 0.7em;">{$tag->title}</span></a>    
+                    {/foreach}
+                </div>
+
+
+                {* body area *}
+                <!-- <div class="uk-padding-small">
+                    
+                    {* body truncated text *}
+                    <div class="uk-text-muted uk-text-small noExternalSVG">
+                        {foreach $item->repeater_matrix->find("type=bodycopy") as $body}
+                            {if $iterator->first}
+                                <p style="font-size: 0.75em;">{$body->body|stripHtml|truncate:125}</p>
+                            {/if}
+                        {/foreach}
+                    </div>
+                </div> -->
+                
+                {* categories *}
+                {* <div class="uk-padding-small uk-padding-remove-top">
+                    {foreach $item->categories as $tag}
+                        <span uk-icon="icon: hashtag; ratio: 1"></span>
+                        <a class="uk-text-emphasis uk-button uk-button-text uk-text-small">{$tag->title}</a>
+                    {/foreach}
+                </div> *}
+            </div>
+            
+        {/foreach}
+    </div>
+</section>
