@@ -1,5 +1,5 @@
 <?php namespace ProcessWire; 
 
-// Template file for pages using the "patents template
+// Template file for pages using the "patents" template
 
 ?>

@@ -5,3 +5,4 @@
 <?= $rockfrontend->renderIf("sections/blog-index.latte", "name=blog") ?>
 <?= $rockfrontend->renderIf("sections/tag.latte", "template=tag") ?>
 <?= $rockfrontend->renderIf("sections/contact.latte", "name=contact") ?>
+<?= $rockfrontend->renderIf("sections/organizations.latte", "name=organizations") ?>
