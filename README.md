@@ -1,5 +1,3 @@
-<img src="https://teachingmachine.tv/site/assets/files/1036/tm-logo-large.svg" />
-
 # Julie Tsai • ProcessWire
 
 A personal site for cybersecurity expert Julie Tsai built using the ProcessWire CMF
